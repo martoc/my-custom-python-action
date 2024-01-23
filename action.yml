@@ -1,5 +1,6 @@
 name: 'Custom Python GitHub Action'
 description: 'Calls Python script'
+author: martoc
 runs:
   using: 'composite'
   steps:
@@ -8,9 +9,9 @@ runs:
       with:
         python-version: '3.10'
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
     - name: call script
       id: aws-call
-      run: python src/aws-call.py
+      run: python ${{ github.action_path }}/src/aws-call.py
       shell: bash
