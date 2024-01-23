@@ -1,0 +1,16 @@
+name: 'Custom Python GitHub Action'
+description: 'Calls Python script'
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: call script
+      id: aws-call
+      run: python src/aws-call.py
+      shell: bash
