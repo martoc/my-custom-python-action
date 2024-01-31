@@ -1,2 +1,4 @@
-def main():
-    print("Mocking an AWS call via Boto3")
+import sys
+
+print("Mocking AWS call")
+print("Python version:", sys.version)
